@@ -71,7 +71,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(Stefano, FLSUN Q5)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(nmavor, FLSUN Q5)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -525,9 +525,9 @@
     #define DEFAULT_Kd_LIST { 114.00, 112.0 }
   #else
 
-    #define DEFAULT_Kp 10.28
-    #define DEFAULT_Ki 0.58
-    #define DEFAULT_Kd 45.74
+    #define DEFAULT_Kp 13.64
+    #define DEFAULT_Ki 0.99
+    #define DEFAULT_Kd 47.01
   #endif
 #endif // PIDTEMP
 
@@ -565,9 +565,9 @@
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
 
-  #define DEFAULT_bedKp 17.83
-  #define DEFAULT_bedKi 1.66
-  #define DEFAULT_bedKd 127.67
+  #define DEFAULT_bedKp 70.55
+  #define DEFAULT_bedKi 13.13
+  #define DEFAULT_bedKd 252.65
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -883,7 +883,7 @@
 
 // delta speeds must be the same on xyz
 #define DEFAULT_XYZ_STEPS_PER_UNIT ((XYZ_FULL_STEPS_PER_ROTATION) * (XYZ_MICROSTEPS) / double(XYZ_BELT_PITCH) / double(XYZ_PULLEY_TEETH))
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, 428 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, 448 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1267,9 +1267,9 @@
 #define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
 
 // Require minimum nozzle and/or bed temperature for probing
-#define PREHEAT_BEFORE_PROBING
+// #define PREHEAT_BEFORE_PROBING true
 #if ENABLED(PREHEAT_BEFORE_PROBING)
-  //#define PROBING_NOZZLE_TEMP 120   // (°C) Only applies to E0 at this time
+  #define PROBING_NOZZLE_TEMP 0   // (°C) Only applies to E0 at this time
   #define PROBING_BED_TEMP     60
 #endif
 
@@ -1510,9 +1510,9 @@
 /**
  * Auto-leveling needs preheating
  */
-//#define PREHEAT_BEFORE_LEVELING
+#define PREHEAT_BEFORE_LEVELING
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
-  #define LEVELING_NOZZLE_TEMP 120   // (°C) Only applies to E0 at this time
+  #define LEVELING_NOZZLE_TEMP 0   // (°C) Only applies to E0 at this time
   #define LEVELING_BED_TEMP     60
 #endif
 
